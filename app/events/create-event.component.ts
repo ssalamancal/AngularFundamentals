@@ -20,10 +20,9 @@ export class CreateEventComponent {
     }
 
     saveEvent(newEventValue) {
-        if(){
         this.eventService.saveEvent(newEventValue)
         this.isDirty = false
-        this.router.navigate(['/events'])}
+        this.router.navigate(['/events'])
     }
 
     cancel() {
