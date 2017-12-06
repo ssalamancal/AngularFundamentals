@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { RouterModule } from '@angular/router'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
-import {    
+import {
     EventListComponent,
     EventThumbnailComponent,
     EventService,
@@ -19,7 +20,10 @@ import { Error404Component } from './errors/404.component';
 import { AuthService } from './users/auth.service';
 
 @NgModule({
-    imports: [BrowserModule,
+    imports: [
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
         RouterModule.forRoot(appRoutes)
     ],
     declarations: [
@@ -37,8 +41,8 @@ import { AuthService } from './users/auth.service';
         EventRouteActivator,
         EventListResolver,
         AuthService,
-        { 
-            provide: 'canDeactivateCreateEvent', 
+        {
+            provide: 'canDeactivateCreateEvent',
             useValue: checkDirtyState }
     ],
     bootstrap: [EventsAppComponent]
@@ -47,6 +51,8 @@ export class AppModule {
 }
 
 function checkDirtyState(component: CreateEventComponent) {
-    if(component.isDirty)
-        return window.confirm('You have not saved this event, do you really want to cancell?')
+    if (component.isDirty)
+        return window.confirm('You have not saved this event, do you really want to cancel?')
+
+    return true
 }
