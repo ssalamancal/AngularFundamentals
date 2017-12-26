@@ -34,7 +34,7 @@ export class EventDetailsComponent {
         this.addMode = false
     }
 
-    cancelAddSession(){
+    cancelAddSession() {
         this.addMode = false
     }
 }
