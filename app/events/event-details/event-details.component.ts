@@ -14,6 +14,7 @@ import { IEvent, ISession } from '../index';
 export class EventDetailsComponent {
     addMode: boolean;
     event: IEvent
+    filterBy: string = 'all'
 
     constructor(private eventService: EventService, private router: ActivatedRoute) {
     }
