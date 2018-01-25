@@ -27,7 +27,9 @@ constructor(private http:Http){
     }
 
     getEvent(id: number) {
-        return EVENTS.find(event => event.id === id)
+        return this.http.get('/api/events/' + id).map((response: Response) =>{
+            return <IEvent>response.json();
+        }).catch(this.handleError)
     }
 
     searchSessions(searchTerm: string) {
