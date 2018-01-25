@@ -35,7 +35,7 @@ export class EventDetailsComponent {
         const maxId = Math.max.apply(null, this.event.sessions.map(session => session.id))
         session.id = maxId + 1
         this.event.sessions.push(session)
-        this.eventService.updateEvent(this.event)
+        this.eventService.saveEvent(this.event)
         this.addMode = false
     }
 
