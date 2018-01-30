@@ -10,12 +10,13 @@
             </div>
             <div class="form-group" [ngClass]="{ 'error': !validateLastName() }">
                 <label for="lastName">Last Name:</label>
-                <em *ngIf="!validateLastName()">Required</em>                
+                <em *ngIf="!validateLastName()">Required</em>
                 <input formControlName="lastName" id="lastName" type="text" class="form-control" placeholder="Last Name..." />
             </div>
 
             <button type="submit" class="btn btn-primary">Save</button>
             <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
+            <button type="button" class="btn btn-warning" (click)="logout()" style="float: right">Logout</button>
         </form>
     </div>
 </div>
