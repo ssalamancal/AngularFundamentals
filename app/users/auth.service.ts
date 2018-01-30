@@ -36,7 +36,7 @@ export class AuthService {
                 }
             })
             .do(currentUser => {
-                if (!!currentUser.userName) {                    
+                if (!!currentUser.userName) {
                     this.currentUser = currentUser
                 }
             })
@@ -50,5 +50,10 @@ export class AuthService {
     updateCurrentUser(firstName: string, lastName: string) {
         this.currentUser.firstName = firstName
         this.currentUser.lastName = lastName
+
+        let header: Headers = new Headers({ 'Content-Type': 'application/json' })
+        let options: RequestOptions = new RequestOptions({ headers: header })
+
+        return this.http.put(`/api/users/${this.currentUser.id}`, JSON.stringify(this.currentUser), options)
     }
 }
